@@ -126,7 +126,7 @@ Task("Publish")
     PublishPackages(packages, "https://resharper-plugins.jetbrains.com/api/v2/package", resharperApiKey);
 });
 
-private void PublishPackages(FilePathCollection packages, string source, string apiKey)
+private void PublishPackages(IEnumerable<FilePath> packages, string source, string apiKey)
 {
     foreach (var package in packages)
     {
