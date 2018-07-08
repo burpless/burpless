@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <Version>0.1.0</Version>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <Title>Burpless</Title>
+    <Authors>Robert Coltheart</Authors>
+    <Description>A ReSharper unit test provider for running Gherkin specifications.</Description>
+    <PackageProjectUrl>https://github.com/burpless/burpless</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/burpless/burpless/raw/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>unit;test;feature;gherkin;bdd</PackageTags>
+  </PropertyGroup>
+
+  <!--<PropertyGroup>
+    <HostFullIdentifier>ReSharperPlatformVs15_342bd623ReSharper</HostFullIdentifier>
+  </PropertyGroup>-->
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.ReSharper.SDK" Version="2018.1.3" PrivateAssets="All" />
+    <PackageReference Include="Wave" Version="[12.0]" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Burpless\Burpless.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <Target Name="CustomContentTarget">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\Burpless.dll" PackagePath="DotFiles" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\Burpless.ReSharper.dll" PackagePath="DotFiles" />
+    </ItemGroup>
+  </Target>
+
+</Project>

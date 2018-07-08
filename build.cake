@@ -6,6 +6,7 @@
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 var nugetApiKey = Argument("nugetapikey", EnvironmentVariable("NUGET_API_KEY"));
+var resharperApiKey = Argument("resharperapikey", EnvironmentVariable("RESHARPER_API_KEY"));
 
 //////////////////////////////////////////////////////////////////////
 // GLOBAL VARIABLES
@@ -116,17 +117,26 @@ Task("Publish")
     .WithCriteria(() => AppVeyor.Environment.Repository.Tag.IsTag)
     .Does(() =>
 {
-    var packages = GetFiles("artifacts/**/*.nupkg");
+    var packages = GetFiles("artifacts/**/*.nupkg")
+        .Where(x => !x.FullPath.Contains(".ReSharper."));
 
+    var resharperPackages = GetFiles("artifacts/**/*.ReSharper*.nupkg");
+    
+    PublishPackages(packages, "https://www.nuget.org/api/v2/package", nugetApiKey);
+    PublishPackages(packages, "https://resharper-plugins.jetbrains.com/api/v2/package", resharperApiKey);
+});
+
+private void PublishPackages(FilePathCollection packages, string source, string apiKey)
+{
     foreach (var package in packages)
     {
         DotNetCoreNuGetPush(package.FullPath, new DotNetCoreNuGetPushSettings
         {
-            Source = "https://www.nuget.org/api/v2/package",
-            ApiKey = nugetApiKey
+            Source = source,
+            ApiKey = apiKey
         });
     }
-});
+}
 
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS

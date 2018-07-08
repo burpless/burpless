@@ -2,7 +2,9 @@ image: Visual Studio 2017
 
 environment:
   NUGET_API_KEY:
-    secure: kJ5a/VtrxfhiYu6bsH3CXImLUhOZzNtYk1RbcjUILmitx6F4bU3zJL+HAtw5XWQS
+    secure: wLg7bcmud5aBIS2oXc2K9xoFykRmkA+JWq+O1Edf0MqAcocKJYZaDutQf+Ao89KY
+  RESHARPER_API_KEY:
+    secure: GE8QaEvnE2f3rt47q/eUKaO95pxzMPTdxHdSc+BnDDuGiCjFjHL/iAhykTM68M63
 
 build_script:
   - ps: .\build.ps1
