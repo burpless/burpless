@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
     <Version>0.1.0</Version>
-    <Title>Burpless</Title>
+    <Title>Burpless.TestAdapter</Title>
     <Authors>Robert Coltheart</Authors>
     <Description>A unit test adapter for Gherkin specifications.</Description>
     <PackageProjectUrl>https://github.com/burpless/burpless</PackageProjectUrl>
