@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Burpless", "Burpless\Burpless.csproj", "{8CA73428-7F98-4FA6-9564-134A1CE01791}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Burpless.Tests", "Burpless.Tests\Burpless.Tests.csproj", "{8C432251-E44B-4830-A099-9FB7F65CF9AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CA73428-7F98-4FA6-9564-134A1CE01791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA73428-7F98-4FA6-9564-134A1CE01791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA73428-7F98-4FA6-9564-134A1CE01791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA73428-7F98-4FA6-9564-134A1CE01791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C432251-E44B-4830-A099-9FB7F65CF9AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C432251-E44B-4830-A099-9FB7F65CF9AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C432251-E44B-4830-A099-9FB7F65CF9AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C432251-E44B-4830-A099-9FB7F65CF9AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF51E484-55C0-4DC5-A1D9-F1C571729AF3}
+	EndGlobalSection
+EndGlobal
