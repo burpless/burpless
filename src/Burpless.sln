@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Burpless.ReSharper", "Burpl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Burpless.TestAdapter", "Burpless.TestAdapter\Burpless.TestAdapter.csproj", "{3579A77A-1F8F-4DF0-B510-660F9464E8DB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Burpless.Analyzers", "Burpless.Analyzers\Burpless.Analyzers.csproj", "{D6DFCABA-31C4-4491-87E2-746CBBED303F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3579A77A-1F8F-4DF0-B510-660F9464E8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3579A77A-1F8F-4DF0-B510-660F9464E8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3579A77A-1F8F-4DF0-B510-660F9464E8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6DFCABA-31C4-4491-87E2-746CBBED303F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6DFCABA-31C4-4491-87E2-746CBBED303F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6DFCABA-31C4-4491-87E2-746CBBED303F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6DFCABA-31C4-4491-87E2-746CBBED303F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

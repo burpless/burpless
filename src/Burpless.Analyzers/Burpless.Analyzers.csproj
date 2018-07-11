@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <Version>0.1.0</Version>
+    <Title>Burpless.Analyzers</Title>
+    <Authors>Robert Coltheart</Authors>
+    <Description>A set of code analyzers for projects using Burpless.</Description>
+    <PackageProjectUrl>https://github.com/burpless/burpless</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/burpless/burpless/raw/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>unit;test;feature;gherkin;bdd</PackageTags>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+  </PropertyGroup>
+   
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.8.2" PrivateAssets="All" />
+    <PackageReference Update="NETStandard.Library" PrivateAssets="All" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <Target Name="CustomContentTarget">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\Burpless.Analyzers.dll" PackagePath="analyzers\dotnet\cs" />
+      <TfmSpecificPackageFile Include="$(ProjectDir)\install.ps1" PackagePath="tools" />
+      <TfmSpecificPackageFile Include="$(ProjectDir)\uninstall.ps1" PackagePath="tools" />
+    </ItemGroup>
+  </Target>
+
+</Project>
