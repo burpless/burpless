@@ -13,7 +13,7 @@ namespace Burpless.ReSharper.Testing
     [UnitTestProvider]
     public class BurplessTestProvider : IDotNetVsTestBasedUnitTestProvider
     {
-        public const string RunnerId = "Burpless";
+        public const string RunnerId = "Burpless.ReSharper";
 
         private static readonly AssemblyNameInfo AssemblyReferenceName = AssemblyNameInfoFactory.Create2(RunnerId, null);
 
