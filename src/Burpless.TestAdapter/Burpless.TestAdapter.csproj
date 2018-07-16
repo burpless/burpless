@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFrameworks>net46;netcoreapp1.0</TargetFrameworks>
     <Version>0.1.0</Version>
     <Title>Burpless.TestAdapter</Title>
     <Authors>Robert Coltheart</Authors>
@@ -9,14 +9,19 @@
     <PackageProjectUrl>https://github.com/burpless/burpless</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/burpless/burpless/raw/master/LICENSE</PackageLicenseUrl>
     <PackageTags>unit;test;feature;gherkin;bdd</PackageTags>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="[11.0.0,16.0.0)" PrivateAssets="All" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="11.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp1.0'">
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="15.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Burpless\Burpless.csproj" />
+    <ProjectReference Include="..\Burpless\Burpless.csproj" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

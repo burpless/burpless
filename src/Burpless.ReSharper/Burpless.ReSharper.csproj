@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>net46</TargetFramework>
     <Version>0.1.0</Version>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <Title>Burpless</Title>
@@ -10,6 +10,7 @@
     <PackageProjectUrl>https://github.com/burpless/burpless</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/burpless/burpless/raw/master/LICENSE</PackageLicenseUrl>
     <PackageTags>unit;test;feature;gherkin;bdd</PackageTags>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
 
   <!--<PropertyGroup>
