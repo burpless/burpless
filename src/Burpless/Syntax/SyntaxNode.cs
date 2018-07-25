@@ -4,6 +4,8 @@ namespace Burpless.Syntax
 {
     public abstract class SyntaxNode
     {
+        public SyntaxNode Parent { get; }
+
         public abstract void Accept(SyntaxVisitor visitor);
 
         public IEnumerable<SyntaxNode> Descendants()

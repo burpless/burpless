@@ -2,10 +2,6 @@
 {
     public class SyntaxVisitor
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="node"></param>
         public virtual void Visit(SyntaxNode node)
         {
         }
