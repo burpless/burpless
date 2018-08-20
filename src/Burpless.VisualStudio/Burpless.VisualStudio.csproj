@@ -5,6 +5,7 @@
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
     <Version>0.1.0</Version>
+    <UseCodebase>true</UseCodebase>
     <Title>Burpless.VisualStudio</Title>
     <Authors>Robert Coltheart</Authors>
     <Description>Visual Studio support for the Gherkin language.</Description>
