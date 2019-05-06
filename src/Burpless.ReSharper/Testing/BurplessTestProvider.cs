@@ -6,6 +6,7 @@ using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Resources.Shell;
 using JetBrains.ReSharper.UnitTestFramework;
 using JetBrains.ReSharper.UnitTestFramework.DotNetCore.DotNetVsTest;
+using JetBrains.Util.Dotnet.TargetFrameworkIds;
 using JetBrains.Util.Reflection;
 
 namespace Burpless.ReSharper.Testing
@@ -20,6 +21,8 @@ namespace Burpless.ReSharper.Testing
         public string ID => RunnerId;
 
         public string Name => RunnerId;
+
+        public string ExecutorUri { get; }
 
         public bool IsElementOfKind(IDeclaredElement declaredElement, UnitTestElementKind elementKind)
         {
@@ -52,6 +55,11 @@ namespace Burpless.ReSharper.Testing
         public string GetExtensionName(IProject project, TargetFrameworkId targetFrameworkId)
         {
             return "Burpless.TestAdapter.dll";
+        }
+
+        public bool SupportsResultEventsForParentOf(IUnitTestElement element)
+        {
+            throw new NotImplementedException();
         }
     }
 }

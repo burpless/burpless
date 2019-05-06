@@ -13,22 +13,21 @@ using JetBrains.Util;
 namespace Burpless.ReSharper.Testing
 {
     [SolutionComponent]
-    public class SourceExplorer : UnitTestExplorerFrom.DotNetArtefacts, IUnitTestExplorerFromFile
+    public class SourceExplorer : UnitTestExplorerFrom.DotNetArtifacts, IUnitTestExplorerFromFile
     {
         private readonly ILogger _logger;
 
         public SourceExplorer(
-            ISolution solution,
             BurplessTestProvider provider,
             AssemblyToAssemblyReferencesResolveManager resolveManager,
             ResolveContextManager resolveContextManager,
             ILogger logger)
-            : base(solution, provider, resolveManager, resolveContextManager, logger)
+            : base(provider, resolveManager, resolveContextManager, logger)
         {
             _logger = logger;
         }
 
-        public override void ProcessProject(IProject project, FileSystemPath assemblyPath, MetadataLoader loader, IUnitTestElementsObserver observer, CancellationToken token)
+        protected override void ProcessProject(IProject project, FileSystemPath assemblyPath, MetadataLoader loader, IUnitTestElementsObserver observer, CancellationToken token)
         {
             var factory = new UnitTestElementFactory();
             var explorer = new MetadataExplorer(factory, observer);
@@ -36,8 +35,6 @@ namespace Burpless.ReSharper.Testing
             void ExploreAction(IMetadataAssembly assembly) => explorer.ExploreAssembly(project, assembly, token);
 
             MetadataElementsSource.ExploreProject(project, assemblyPath, loader, observer, _logger, token, ExploreAction);
-
-            observer.OnCompleted();
         }
 
         public void ProcessFile(IFile psiFile, IUnitTestElementsObserver observer, Func<bool> interrupted)
@@ -46,8 +43,6 @@ namespace Burpless.ReSharper.Testing
             var explorer = new FileExplorer(factory, observer, interrupted);
 
             psiFile.ProcessDescendants(explorer);
-
-            observer.OnCompleted();
         }
     }
 }

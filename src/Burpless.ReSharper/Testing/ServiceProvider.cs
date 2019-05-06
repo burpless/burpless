@@ -1,9 +1,8 @@
 ﻿using Burpless.ReSharper.Testing.Strategies;
-using JetBrains.Metadata.Reader.API;
 using JetBrains.ProjectModel;
 using JetBrains.ReSharper.UnitTestFramework;
-using JetBrains.ReSharper.UnitTestFramework.DotNetCore;
 using JetBrains.ReSharper.UnitTestFramework.Strategy;
+using JetBrains.Util.Dotnet.TargetFrameworkIds;
 
 namespace Burpless.ReSharper.Testing
 {
@@ -13,31 +12,28 @@ namespace Burpless.ReSharper.Testing
         private readonly BurplessTestProvider _provider;
         private readonly ISolution _solution;
         private readonly IUnitTestElementIdFactory _elementIdFactory;
-        private readonly IDotNetCoreSdkResolver _dotNetCoreSdkResolver;
+        private readonly OutOfProcessTestRunStrategy _defaultRunStrategy;
 
         public ServiceProvider(
             BurplessTestProvider provider,
             ISolution solution,
             IUnitTestElementIdFactory elementIdFactory,
-            IDotNetCoreSdkResolver dotNetCoreSdkResolver)
+            OutOfProcessTestRunStrategy defaultRunStrategy)
         {
             _provider = provider;
             _solution = solution;
             _elementIdFactory = elementIdFactory;
-            _dotNetCoreSdkResolver = dotNetCoreSdkResolver;
+            _defaultRunStrategy = defaultRunStrategy;
         }
 
         public IUnitTestRunStrategy GetRunStrategy(IUnitTestElement element)
         {
-            var project = element.Id.Project;
+            var targetFrameworkId = element.Id.TargetFrameworkId;
 
-            if (!project.IsDotNetCoreProject() || element.Id.TargetFrameworkId.IsNetFramework)
-                return _solution.GetComponent<OutOfProcessTestRunStrategy>();
+            if (targetFrameworkId.IsNetFramework || !element.Id.Project.IsDotNetCoreProject() || !targetFrameworkId.IsNetCoreApp)
+                return _defaultRunStrategy;
 
-            if (_dotNetCoreSdkResolver.GetVersion(project) < ImportantSdkVersions.VsTestVersion)
-                return _solution.GetComponent<TestRunStrategy>();
-
-            return _solution.GetComponent<VsTestRunStrategy>();
+            return  _solution.GetComponent<VsTestRunStrategy>();
         }
 
         public UnitTestElementId CreateId(IProject project, TargetFrameworkId targetFrameworkId, string id)

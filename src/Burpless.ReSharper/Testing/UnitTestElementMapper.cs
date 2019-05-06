@@ -1,8 +1,8 @@
-﻿using JetBrains.Metadata.Reader.API;
-using JetBrains.ProjectModel;
+﻿using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Resources.Shell;
 using JetBrains.ReSharper.UnitTestFramework;
 using JetBrains.ReSharper.UnitTestFramework.DotNetCore.Common;
+using JetBrains.Util.Dotnet.TargetFrameworkIds;
 
 namespace Burpless.ReSharper.Testing
 {
@@ -16,8 +16,10 @@ namespace Burpless.ReSharper.Testing
             _elementFactory = elementFactory;
         }
 
-        public override IUnitTestElement Map(Test test)
+        public override IUnitTestElement Map(Test test, bool isDiscovery, out bool wasChanged)
         {
+            wasChanged = false;
+
             using (ReadLockCookie.Create())
             {
                 return _elementFactory.GetOrCreateScenario();

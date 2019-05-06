@@ -14,7 +14,7 @@ namespace Burpless.ReSharper.Testing.Elements
 
         public string Kind { get; }
 
-        public ISet<UnitTestElementCategory> OwnCategories { get; }
+        public ISet<UnitTestElementCategory> OwnCategories { get; set; }
 
         public string ExplicitReason { get; }
 
@@ -26,7 +26,7 @@ namespace Burpless.ReSharper.Testing.Elements
 
         public bool Explicit { get; }
 
-        public UnitTestElementState State { get; set; }
+        public UnitTestElementOrigin Origin { get; set; }
 
         public string GetPresentation(IUnitTestElement parent = null, bool full = false)
         {
