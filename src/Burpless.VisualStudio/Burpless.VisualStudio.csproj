@@ -18,7 +18,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Editor" Version="15.6.27740" />
     <PackageReference Include="Microsoft.VisualStudio.Package.LanguageService.15.0" Version="15.7.27703" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="15.7.27703" />
-    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="15.8.3247" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.1600" />
   </ItemGroup>
 
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
