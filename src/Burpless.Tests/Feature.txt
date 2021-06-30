@@ -1,0 +1,61 @@
+﻿# language: en
+@myFeature
+Feature: My feature
+    with a description
+    over multiple lines
+
+# Comment on the scenario
+@thisIsAScenario
+Example: Maker starts a game
+    and a description
+    Given I am somebody
+    When I do something
+    Then I am somewhat
+
+Background:
+
+    A description here
+
+    Given something
+    And someone
+    But not somebody
+
+@myTag
+Scenario: Scenario 1
+    with a single line description
+    Given some condition
+    When I do something
+    Then there are consequences
+
+@myOutline
+Scenario Outline: When stuff happens
+    with a description
+    Given a condition <a>
+    When I pass <b>
+    Then I see the following <result>
+
+    @setOfExamples
+    Examples:
+        | a | b | result |
+        | 1 | 2 | bang.  |
+        | 3 | 4 | wallo  |
+
+Scenario: When other stuff happens
+    Given the following:
+        * a mole appears
+        * and a rat
+        * at toad hall
+    When the car starts and:
+        * toad disappears
+    Then the car explodes
+
+Scenario: Using arguments
+    Given the following text
+        """
+        Title
+        Subject
+        """
+    Then the string is valid using a table
+        | name  | age |
+        | Ron   | 5   |
+        | Terry | 84  |

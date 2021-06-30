@@ -8,6 +8,8 @@ namespace Burpless.Syntax
 
         public abstract void Accept(SyntaxVisitor visitor);
 
+        internal abstract IEnumerable<SyntaxNode> GetNodes();
+
         public IEnumerable<SyntaxNode> Descendants()
         {
             return null;

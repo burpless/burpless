@@ -1,4 +1,6 @@
-﻿namespace Burpless.Syntax
+﻿using System.Collections.Generic;
+
+namespace Burpless.Syntax
 {
     public class BackgroundSyntaxNode : SyntaxNode
     {
@@ -9,6 +11,12 @@
         public override void Accept(SyntaxVisitor visitor)
         {
             visitor.VisitBackground(this);
+        }
+
+        internal override IEnumerable<SyntaxNode> GetNodes()
+        {
+            yield return Description;
+            yield return Steps;
         }
     }
 }

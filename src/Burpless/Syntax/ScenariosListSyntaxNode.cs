@@ -2,11 +2,11 @@
 
 namespace Burpless.Syntax
 {
-    public class TableHeaderRowSyntaxNode : SyntaxNode
+    public class ScenariosListSyntaxNode : SyntaxNode
     {
         public override void Accept(SyntaxVisitor visitor)
         {
-            visitor.VisitTableHeaderRow(this);
+            visitor.VisitScenariosList(this);
         }
 
         internal override IEnumerable<SyntaxNode> GetNodes()

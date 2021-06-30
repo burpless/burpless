@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using System.Threading;
 using Burpless.VisualStudio.Language;
@@ -22,7 +23,23 @@ namespace Burpless.VisualStudio
     {
         protected override Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
+            var editorFactory = new EditorFactory(this, typeof(GherkinLanguageService).GUID);
+
+            RegisterEditorFactory(editorFactory);
+
+            AddService<GherkinServiceProvider>((container, type) => new GherkinServiceProvider(container), true);
+
             return Task.CompletedTask;
+        }
+
+        private void AddService<T>(ServiceCreatorCallback callback, bool promote)
+        {
+            ((IServiceContainer)this).AddService(typeof(T), callback, promote);
+        }
+
+        private void AddService<T>(T instance, bool promote)
+        {
+            ((IServiceContainer) this).AddService(typeof(T), instance, promote);
         }
     }
 }
