@@ -2,8 +2,11 @@
 
   <PropertyGroup>
     <TargetFrameworks>net472;net6.0;net8.0</TargetFrameworks>
-    <IncludeBuildOutput>false</IncludeBuildOutput>
-    <IsTestProject>false</IsTestProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Burpless</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -19,15 +22,6 @@
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Burpless.TestAdapter\Burpless.TestAdapter.csproj" />
-    <ProjectReference Include="..\Burpless.TestFramework\Burpless.TestFramework.csproj" />
   </ItemGroup>
 
 </Project>
